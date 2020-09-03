@@ -6,6 +6,22 @@ pipeline{
 	                     echo "hi success"
 	                       }
 	                       }
+	            stage('two'){
+	                  steps{
+	                  input('Do you want to continue')
+	                       }
+	                       } 
+	               stage('three'){
+	               when{
+	               not{
+	               		branch "master"
+	               		}
+	               }
+	                  steps{
+	                     echo "stage 3"
+	                       }
+	               }
+
 	           }
 	
          }
